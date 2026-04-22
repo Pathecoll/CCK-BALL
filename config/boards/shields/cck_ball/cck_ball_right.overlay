@@ -117,7 +117,7 @@
 
         trackball_scroll_layers {
             layers = <1 2>;
-            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 2>;
+            input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_scaler 1 6>;
         };
 
         trackball_snipe_layer {
