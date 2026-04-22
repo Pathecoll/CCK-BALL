@@ -145,7 +145,7 @@
 &trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
 &trans  &trans  &kp C_PREVIOUS  &kp C_PLAY   &kp C_NEXT  &trans          &trans          &mkp LCLK   &mkp MCLK    &mkp RCLK  &trans  &trans
 &trans  &trans  &trans          &kp C_MUTE   &trans      &trans          &trans          &trans      &trans       &mo 5      &trans  &trans
-&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
+&trans  &trans  &trans          &mo 5        &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
             >;
 
             sensor-bindings =
@@ -157,11 +157,11 @@
 
         ADJ-Snipe {
             bindings = <
-&trans  &trans  &trans     &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset      &bootloader  &trans      &trans  &trans
-&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
-&trans  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &trans          &trans          &kp K_PREVIOUS  &kp C_PP     &kp K_NEXT  &trans  &trans
-&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &kp C_MUTE   &trans      &trans  &trans
-&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
+&trans  &trans  &trans          &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset  &bootloader  &trans     &trans  &trans
+&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
+&trans  &trans  &kp C_PREVIOUS  &kp C_PLAY   &kp C_NEXT  &trans          &trans          &mkp LCLK   &mkp MCLK    &mkp RCLK  &trans  &trans
+&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
+&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
             >;
 
             sensor-bindings =
