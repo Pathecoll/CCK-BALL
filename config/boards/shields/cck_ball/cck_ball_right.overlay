@@ -60,7 +60,6 @@
         zephyr,axis-x = <INPUT_REL_X>;
         zephyr,axis-y = <INPUT_REL_Y>;
         res-cpi = <1200>;
-        invert-x;
         smart-mode;
       // automouse-layer = <3>;
     };
@@ -114,7 +113,7 @@
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 2 1>;
+        input-processors = <&zip_xy_scaler 1 1>;
 
         trackball_scroll_layers {
             layers = <1 2>;
@@ -123,7 +122,7 @@
 
         trackball_snipe_layer {
             layers = <5>;
-            input-processors = <&zip_xy_scaler 1 1>;
+            input-processors = <&zip_xy_scaler 1 2>;
         };
     };
 };
