@@ -54,28 +54,28 @@
         ExposeUp: ExposeUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CAPSLOCK &kp UP_ARROW>;
+            bindings = <&kp GLOBE &kp UP_ARROW>;
             label = "EXPOSEUP";
         };
 
         ExposeDown: ExposeDown {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CAPSLOCK &kp DOWN>;
+            bindings = <&kp GLOBE &kp DOWN>;
             label = "EXPOSEDOWN";
         };
 
         ExposeLeft: ExposeLeft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CAPSLOCK &kp LEFT_ARROW>;
+            bindings = <&kp GLOBE &kp LEFT_ARROW>;
             label = "EXPOSELEFT";
         };
 
         ExposeRight: ExposeRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp CAPSLOCK &kp RIGHT>;
+            bindings = <&kp GLOBE &kp RIGHT>;
             label = "EXPOSERIGHT";
         };
     };
@@ -88,8 +88,8 @@
 &kp ESC           &kp N1          &kp N2              &kp N3          &kp N4            &kp N5     &kp N6           &kp N7             &kp N8           &kp N9               &kp N0              &kp BACKSPACE
 &kp ESCAPE        &kp Q           &kp W               &kp E           &kp R             &kp T      &kp Y            &kp U              &kp I            &kp O                &kp P               &kp BSLH
 &kp TAB           &mt A LEFT_ALT  &mt LEFT_CONTROL S  &mt D LEFT_GUI  &mt LEFT_SHIFT F  &kp G      &kp H            &mt J RIGHT_SHIFT  &mt K RIGHT_GUI  &mt L RIGHT_CONTROL  &mt SEMI RIGHT_ALT  &kp SQT
-&kp LEFT_SHIFT    &lt 2 Z         &kp X               &kp C           &kp V             &kp B      &kp N            &kp M              &kp COMMA        &kp DOT              &lt 3 SLASH         &kp LEFT_SHIFT
-&kp LEFT_CONTROL  &kp LEFT_WIN    &kp LEFT_ALT        &kp DELETE      &kp SPACE         &lt 1 TAB  &lt 2 BACKSPACE  &kp SPACE          &kp ENTER        &kp LEFT_ARROW       &kp DOWN_ARROW      &kp RIGHT_ARROW
+&kp LEFT_SHIFT    &lt 4 Z         &kp X               &kp C           &kp V             &kp B      &kp N            &kp M              &kp COMMA        &kp DOT              &lt 4 SLASH         &kp LEFT_SHIFT
+&kp LEFT_CONTROL  &kp LEFT_WIN    &kp LEFT_ALT        &kp DELETE      &kp SPACE         &lt 1 TAB  &lt 3 BACKSPACE  &kp SPACE          &kp ENTER        &kp LEFT_ARROW       &kp DOWN_ARROW      &kp RIGHT_ARROW
             >;
 
             sensor-bindings =
@@ -100,67 +100,73 @@
         Nav {
             bindings = <
 &kp F12  &kp F1  &kp F2          &kp F3              &kp F4         &kp F5                &kp F6                 &kp F7        &kp F8        &kp F9        &kp F10  &kp F11
-&kp A    &none   &kp PG_DN       &kp UP_ARROW        &kp PAGE_UP    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N7        &kp N8        &kp N9        &trans   &trans
-&trans   &none   &kp LEFT_ARROW  &kp DOWN_ARROW      &kp RIGHT      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans   &trans
+&trans   &trans  &kp PG_DN       &kp UP_ARROW        &kp PAGE_UP    &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N7        &kp N8        &kp N9        &trans   &trans
+&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW      &kp RIGHT      &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans   &trans
 &trans   &trans  &kp RC(LEFT)    &kp RC(UP_ARROW)    &kp RC(RIGHT)  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none    &trans
-&trans   &trans  &trans          &kp RC(DOWN_ARROW)  &mo 5          &trans                &mo 3                  &kp N0        &kp DOT       &trans        &trans   &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        Symbols {
-            bindings = <
-&bt BT_CLR  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &bt BT_CLR_ALL  &bt BT_CLR_ALL  &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans        &trans          &trans          &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans        &trans          &trans          &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans        &bt BT_NXT      &trans          &trans  &trans  &trans  &trans
-&trans      &trans        &trans        &trans        &trans        &trans        &trans          &trans          &trans  &trans  &trans  &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        scroll-layers {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-            >;
-
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
-
-        snipe-layers {
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans   &trans  &trans          &kp RC(DOWN_ARROW)  &mo 2          &trans                &mo 4                  &kp N0        &kp DOT       &trans        &trans   &trans
             >;
 
             sensor-bindings =
                 <&scroll_vertical_encoder>,
-                // 编码器1：上下滚动,
-                <&scroll_horizontal_encoder>;
-  // 编码器2：左右滚动
+                <&scroll_vertical_encoder>;
         };
 
         NavIpad {
             bindings = <
 &kp F12  &kp F1  &kp F2          &kp F3          &kp F4        &kp F5                &kp F6                 &kp F7        &kp F8        &kp F9        &kp F10  &kp F11
-&kp A    &none   &kp PG_DN       &kp UP_ARROW    &kp PAGE_UP   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N7        &kp N8        &kp N9        &trans   &trans
-&trans   &none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans   &trans
-&trans   &trans  &ExposeLeft     &ExposeUp       &ExposeRight  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &none    &trans
-&trans   &trans  &trans          &ExposeDown     &trans        &trans                &mkp LCLK              &mkp RCLK     &trans        &trans        &trans   &trans
+&trans   &trans  &kp PG_DN       &kp UP_ARROW    &kp PAGE_UP   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N7        &kp N8        &kp N9        &trans   &trans
+&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans   &trans
+&trans   &trans  &ExposeLeft     &ExposeUp       &ExposeRight  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans   &trans
+&trans   &trans  &trans          &ExposeDown     &trans        &trans                &trans                 &trans        &trans        &trans        &trans   &trans
             >;
 
             sensor-bindings =
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
                 <&inc_dec_kp PG_UP PG_DN>;
+        };
+
+        Symbols {
+            bindings = <
+&bt BT_CLR  &bt BT_SEL 0   &bt BT_SEL 1  &bt BT_SEL 2          &bt BT_SEL 3           &bt BT_SEL 4       &bt BT_CLR_ALL  &bt BT_CLR_ALL    &trans             &trans          &trans           &trans
+&trans      &kp EXCL       &kp AT        &kp HASH              &kp DOLLAR             &kp PERCENT        &kp CARET       &kp AMPS          &kp ASTRK          &kp QUESTION    &kp APOS         &trans
+&trans      &kp PLUS       &kp EQUAL     &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp DOUBLE_QUOTES  &kp COLON       &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE  &trans
+&trans      &kp LESS_THAN  &kp PIPE      &kp MINUS             &kp GREATER_THAN       &kp BACKSLASH      &kp GRAVE       &kp UNDER         &kp SLASH          &kp TILDE       &kp SEMI         &trans
+&trans      &trans         &trans        &trans                &trans                 &mo 4              &trans          &trans            &trans             &trans          &trans           &trans
+            >;
+
+            sensor-bindings =
+                <&scroll_horizontal_encoder>,
+                <&scroll_vertical_encoder>;
+        };
+
+        ADJ {
+            bindings = <
+&trans  &trans  &trans     &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset      &bootloader  &trans      &trans  &trans
+&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
+&trans  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &trans          &trans          &kp K_PREVIOUS  &kp C_PP     &kp K_NEXT  &trans  &trans
+&trans  &trans  &trans     &trans       &mo 5       &trans          &trans          &trans          &kp C_MUTE   &trans      &trans  &trans
+&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
+                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
+
+            // 编码器2：左右滚动
+        };
+
+        ADJ-Snipe {
+            bindings = <
+&trans  &trans  &trans     &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset      &bootloader  &trans      &trans  &trans
+&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
+&trans  &trans  &mkp LCLK  &mkp MCLK    &mkp RCLK   &trans          &trans          &kp K_PREVIOUS  &kp C_PP     &kp K_NEXT  &trans  &trans
+&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &kp C_MUTE   &trans      &trans  &trans
+&trans  &trans  &trans     &trans       &trans      &trans          &trans          &trans          &trans       &trans      &trans  &trans
+            >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
+                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
     };
 };
