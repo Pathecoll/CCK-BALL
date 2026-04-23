@@ -54,36 +54,56 @@
         ExposeUp: ExposeUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp GLOBE>
-            , <&macro_tap &kp UP_ARROW>
-            , <&macro_release &kp GLOBE>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
             label = "EXPOSEUP";
         };
 
         ExposeDown: ExposeDown {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp GLOBE>
-            , <&macro_tap &kp DOWN>
-            , <&macro_release &kp GLOBE>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp DOWN>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
             label = "EXPOSEDOWN";
         };
 
         ExposeLeft: ExposeLeft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp GLOBE>
-            , <&macro_tap &kp LEFT_ARROW>
-            , <&macro_release &kp GLOBE>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp LEFT_ARROW>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
             label = "EXPOSELEFT";
         };
 
         ExposeRight: ExposeRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp GLOBE>
-            , <&macro_tap &kp RIGHT>
-            , <&macro_release &kp GLOBE>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp RIGHT>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
             label = "EXPOSERIGHT";
         };
     };
@@ -152,8 +172,8 @@
 &trans  &trans  &trans          &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset  &bootloader  &trans     &trans  &trans
 &trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
 &trans  &trans  &kp C_PREVIOUS  &kp C_PLAY   &kp C_NEXT  &trans          &trans          &mkp LCLK   &mkp MCLK    &mkp RCLK  &trans  &trans
-&trans  &trans  &trans          &kp C_MUTE   &trans      &trans          &trans          &trans      &trans       &mo 5      &trans  &trans
-&trans  &trans  &trans          &mo 5        &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
+&trans  &trans  &trans          &kp C_MUTE   &mo 5       &trans          &trans          &trans      &trans       &mo 5      &trans  &trans
+&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
             >;
 
             sensor-bindings =
@@ -163,13 +183,13 @@
             // 编码器2：左右滚动
         };
 
-        ADJ-Snipe {
+        CursorSnipe {
             bindings = <
-&trans  &trans  &trans          &bootloader  &sys_reset  &studio_unlock  &studio_unlock  &sys_reset  &bootloader  &trans     &trans  &trans
-&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
-&trans  &trans  &kp C_PREVIOUS  &kp C_PLAY   &kp C_NEXT  &trans          &trans          &mkp LCLK   &mkp MCLK    &mkp RCLK  &trans  &trans
-&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
-&trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings =
