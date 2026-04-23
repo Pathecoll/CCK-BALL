@@ -54,28 +54,36 @@
         ExposeUp: ExposeUp {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp UP_ARROW>;
+            bindings = <&macro_press &kp GLOBE>
+            , <&macro_tap &kp UP_ARROW>
+            , <&macro_release &kp GLOBE>;
             label = "EXPOSEUP";
         };
 
         ExposeDown: ExposeDown {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp DOWN>;
+            bindings = <&macro_press &kp GLOBE>
+            , <&macro_tap &kp DOWN>
+            , <&macro_release &kp GLOBE>;
             label = "EXPOSEDOWN";
         };
 
         ExposeLeft: ExposeLeft {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp LEFT_ARROW>;
+            bindings = <&macro_press &kp GLOBE>
+            , <&macro_tap &kp LEFT_ARROW>
+            , <&macro_release &kp GLOBE>;
             label = "EXPOSELEFT";
         };
 
         ExposeRight: ExposeRight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&kp GLOBE &kp RIGHT>;
+            bindings = <&macro_press &kp GLOBE>
+            , <&macro_tap &kp RIGHT>
+            , <&macro_release &kp GLOBE>;
             label = "EXPOSERIGHT";
         };
     };
