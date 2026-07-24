@@ -26,6 +26,11 @@
 
 &soft_off { hold-time-ms = <2000>; };
 
+&mt {
+    flavor = "tap-preferred";
+    quick-tap-ms = <200>;
+};
+
 / {
     // 上下滚动编码器行为
 
