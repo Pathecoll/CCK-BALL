@@ -126,9 +126,17 @@
 &kp LEFT_CONTROL  &kp LEFT_ALT    &kp LEFT_GUI        &kp DELETE      &kp SPACE         &lt 1 TAB  &lt 3 BACKSPACE  &kp SPACE          &kp ENTER       &kp RIGHT_GUI        &kp RIGHT_ALT       &kp RIGHT_CONTROL
             >;
 
+            // 唯一一处编码器定义：左=亮度，右=音量。
+            // 传感器绑定和按键一样会逐层向下穿透，所以其余层不再重复定义，
+            // 只有需要不同功能的层才自己覆盖。
+            // The only encoder definition: left = brightness, right = volume.
+            // Sensor bindings fall through layers the same way &trans does for
+            // keys, so the other layers deliberately define none and inherit
+            // these. A layer only needs its own block if it wants something
+            // different.
             sensor-bindings =
-                <&scroll_horizontal_encoder>,
-                <&scroll_vertical_encoder>;
+                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
+                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
 
         Nav {
@@ -139,10 +147,6 @@
 &kp LEFT_SHIFT    &trans        &kp RC(LEFT)    &kp RC(UP_ARROW)    &kp RC(RIGHT)  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3   &trans         &kp RIGHT_SHIFT
 &kp LEFT_CONTROL  &kp LEFT_ALT  &kp LEFT_GUI    &kp RC(DOWN_ARROW)  &mo 2          &trans                &mo 4                  &kp N0        &kp DOT       &kp RIGHT_GUI  &kp RIGHT_ALT  &kp RIGHT_CONTROL
             >;
-
-            sensor-bindings =
-                <&scroll_vertical_encoder>,
-                <&scroll_vertical_encoder>;
         };
 
         NavIpad {
@@ -159,10 +163,6 @@
 &trans  &trans  &ExposeLeft  &ExposeUp    &ExposeRight  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans       &ExposeDown  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-                <&inc_dec_kp PG_UP PG_DN>;
         };
 
         Symbols {
@@ -173,10 +173,6 @@
 &trans      &kp LESS_THAN  &kp PIPE      &kp MINUS             &kp GREATER_THAN       &kp BACKSLASH      &kp GRAVE       &kp UNDER         &kp SLASH          &kp TILDE       &kp SEMI         &trans
 &trans      &trans         &trans        &trans                &trans                 &mo 4              &trans          &trans            &trans             &trans          &trans           &trans
             >;
-
-            sensor-bindings =
-                <&scroll_horizontal_encoder>,
-                <&scroll_vertical_encoder>;
         };
 
         ADJ {
@@ -187,12 +183,6 @@
 &trans  &trans  &trans          &kp C_MUTE   &mo 5       &trans          &trans          &trans      &trans       &mo 5      &trans  &trans
 &trans  &trans  &trans          &trans       &trans      &trans          &trans          &trans      &trans       &trans     &trans  &trans
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
-                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
-
-            // 编码器2：左右滚动
         };
 
         CursorSnipe {
@@ -203,10 +193,6 @@
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
 &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
-
-            sensor-bindings =
-                <&inc_dec_kp C_BRIGHTNESS_INC C_BRIGHTNESS_DEC>,
-                <&inc_dec_kp C_VOLUME_UP C_VOL_DN>;
         };
     };
 };
