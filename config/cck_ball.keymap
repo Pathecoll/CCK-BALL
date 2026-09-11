@@ -4,7 +4,7 @@
 // Tuned by feel, not theory. The host negotiates a much smaller Resolution
 // Multiplier than the descriptor's max of 16, so every calculated value came
 // out too fast. 400 -> 67 is the measured 1/6 reduction.
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 67   // 400 -> 67; was 1000, then 12 pre-smooth
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 24   // = the original 12 x the old "2 1" scaler
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
