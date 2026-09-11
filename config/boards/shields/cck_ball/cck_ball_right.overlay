@@ -111,19 +111,6 @@
 
 
 / {
-    // 第二个独立的滚动 scaler。单个 scaler 的参数上限是 16，要更慢就得串联；
-    // 同一个节点不能在一条链里用两次（每个实例有自己的余数状态）。
-    // A second, independent scroll scaler. A single scaler param maxes out at
-    // 16, so going slower means chaining -- and the same node cannot appear
-    // twice in one chain, since each instance owns its remainder state.
-    scroll_scaler_2: scroll_scaler_2 {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <INPUT_EV_REL>;
-        codes = <INPUT_REL_WHEEL>, <INPUT_REL_HWHEEL>;
-        track-remainders;
-    };
-
     trackball_listener: trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
@@ -133,13 +120,7 @@
             layers = <1 2>;
             input-processors = <&zip_xy_to_scroll_mapper>,
                                <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
-                               // 全部凭手感标定：5 2 -> 1 3 -> 1 16 -> 1/256 -> 1/128。
-                               // Tuned entirely by feel: 5 2 -> 1 3 -> 1 16 -> 1/256,
-                               // then back up to 1/128. Calculated values were all far
-                               // too fast, so the host is not applying the Resolution
-                               // Multiplier the way the descriptor advertises.
-                               <&zip_scroll_scaler 1 16>,
-                               <&scroll_scaler_2 1 8>;    // 1/16 * 1/8 = 1/128
+                               <&zip_scroll_scaler 1 48>;
         };
 
         trackball_snipe_layer {

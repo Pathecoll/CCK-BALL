@@ -1,10 +1,5 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000 // 600
-// 凭手感标定，不再按理论推算：主机实际协商的 Resolution Multiplier
-// 比描述符上限 16 小得多，算出来的值都太快了。400 -> 67 是实测的 1/6。
-// Tuned by feel, not theory. The host negotiates a much smaller Resolution
-// Multiplier than the descriptor's max of 16, so every calculated value came
-// out too fast. 400 -> 67 is the measured 1/6 reduction.
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 24   // = the original 12 x the old "2 1" scaler
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 12   // 10
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -15,7 +10,7 @@
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; }; // was 2 1
+&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
 
 &msc {
     acceleration-exponent = <0>;      // 0
