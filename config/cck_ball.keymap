@@ -1,8 +1,10 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000 // 600
-// 平滑滚动开启后，SCRL 值要用 MOVE 级别的数量级（ZMK 官方建议）
-// With CONFIG_ZMK_POINTING_SMOOTH_SCROLLING the SCRL value must be on the
-// same order of magnitude as MOVE (ZMK docs). Was 12 for classic detents.
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 1000 // 12 before smooth scrolling
+// 平滑滚动：ZMK 的 HID Resolution Multiplier 最大是 16（不是 120），
+// 即 16 单位 = 1 档。目标 ~25 档/秒 => 25*16 = 400 单位/秒。
+// Smooth scrolling: ZMK's HID Resolution Multiplier maxes at 16 (not the
+// 120 used by some hosts), so 16 units = 1 detent. Target ~25 detents/sec
+// => 25*16 = 400 units/sec. Was 12 back when 1 unit = 1 detent.
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 400  // 1000 was 2.5x too fast; 12 pre-smooth
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
