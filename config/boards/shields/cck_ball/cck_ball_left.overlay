@@ -36,7 +36,7 @@
 
 &spi3 {
     compatible = "nordic,nrf-spim";
-    status = "okay";
+    status = "disabled"; // 本键盘没有灯珠 / no LEDs populated on this build
 
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;

@@ -1,5 +1,8 @@
 #define ZMK_POINTING_DEFAULT_MOVE_VAL 1000 // 600
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 12   // 10
+// 平滑滚动开启后，SCRL 值要用 MOVE 级别的数量级（ZMK 官方建议）
+// With CONFIG_ZMK_POINTING_SMOOTH_SCROLLING the SCRL value must be on the
+// same order of magnitude as MOVE (ZMK docs). Was 12 for classic detents.
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 1000 // 12 before smooth scrolling
 
 #include <input/processors.dtsi>
 #include <zephyr/dt-bindings/input/input-event-codes.h>
@@ -10,7 +13,7 @@
 
 &mmv_input_listener { input-processors = <&zip_xy_scaler 2 1>; };
 
-&msc_input_listener { input-processors = <&zip_scroll_scaler 2 1>; };
+&msc_input_listener { input-processors = <&zip_scroll_scaler 1 1>; }; // was 2 1
 
 &msc {
     acceleration-exponent = <0>;      // 0
@@ -146,12 +149,18 @@
         };
 
         NavIpad {
+            // 只覆盖与 Nav 不同的 4 个键（Globe+方向键 = iPad 切换桌面），
+            // 其余全部 &trans，落回下面一直按住的 Nav 层。
+            // Only the 4 keys that differ from Nav (Globe+arrow = iPad space
+            // switching). Everything else is &trans and falls through to Nav,
+            // which is always held underneath, so there are no duplicated
+            // bindings to keep in sync between the two layers.
             bindings = <
-&kp F12  &kp F1  &kp F2          &kp F3          &kp F4        &kp F5                &kp F6                 &kp F7        &kp F8        &kp F9        &kp F10  &kp F11
-&trans   &trans  &kp PG_DN       &kp UP_ARROW    &kp PAGE_UP   &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp N7        &kp N8        &kp N9        &trans   &trans
-&trans   &trans  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT     &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp NUMBER_4  &kp N5        &kp NUMBER_6  &trans   &trans
-&trans   &trans  &ExposeLeft     &ExposeUp       &ExposeRight  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans   &trans
-&trans   &trans  &trans          &ExposeDown     &trans        &trans                &trans                 &trans        &trans        &trans        &trans   &trans
+&trans  &trans  &trans       &trans       &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans       &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &trans       &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &ExposeLeft  &ExposeUp    &ExposeRight  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans       &ExposeDown  &trans        &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
 
             sensor-bindings =

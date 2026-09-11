@@ -5,7 +5,11 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      # Pinned to a known-good zmkfirmware/zmk main commit (2026-08-21).
+      # Tracking "main" is what broke this config repeatedly in the past
+      # (binding renames, board-name changes, the pmw3610 driver conflict).
+      # Bump deliberately, and rebuild/flash both halves when you do.
+      revision: 641514a97db345f499dd50b0360e594270f008fe
       import: app/west.yml
       
   self:

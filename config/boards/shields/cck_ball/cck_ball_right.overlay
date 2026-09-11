@@ -85,7 +85,7 @@
 
 &spi3 {
     compatible = "nordic,nrf-spim";
-    status = "okay";
+    status = "disabled"; // 本键盘没有灯珠 / no LEDs populated on this build
 
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
@@ -120,12 +120,22 @@
             layers = <1 2>;
             input-processors = <&zip_xy_to_scroll_mapper>,
                                <&zip_scroll_transform INPUT_TRANSFORM_X_INVERT>,
-                               <&zip_scroll_scaler 1 48>;
+                               // 平滑滚动：120 单位 = 1 档。之前的 "1 48" 既超出了官方
+                               // 建议的最大值 16，又是按整档校准的。
+                               // Smooth scrolling: 120 units = 1 detent. The old "1 48"
+                               // both exceeded the documented max of 16 for these
+                               // params and was calibrated for whole detents.
+                               // 1200 CPI / 48 = 25 detents per inch of ball travel;
+                               // 25 * 120 = 3000 units/inch, so 3000/1200 = x2.5.
+                               <&zip_scroll_scaler 5 2>;
         };
 
         trackball_snipe_layer {
             layers = <5>;
-            input-processors = <&zip_xy_scaler 1 2>;
+            // 1/4 速，比之前的 1/2 更适合精确瞄准。
+            // Quarter speed (was 1 2). The scaler carries a remainder between
+            // events, so slow deliberate movement is deferred, never discarded.
+            input-processors = <&zip_xy_scaler 1 4>;
         };
     };
 };
