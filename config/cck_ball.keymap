@@ -33,7 +33,7 @@
 };
 
 / {
-    // 上下滚动编码器行为
+    // Vertical scroll encoder behavior
 
     scroll_vertical_encoder: scroll_vertical_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -43,7 +43,7 @@
         tap-ms = <100>;
     };
 
-    // 左右滚动编码器行为
+    // Horizontal scroll encoder behavior
 
     scroll_horizontal_encoder: scroll_horizontal_encoder {
         compatible = "zmk,behavior-sensor-rotate";
@@ -126,9 +126,6 @@
 &kp LEFT_CONTROL  &kp LEFT_ALT    &kp LEFT_GUI        &kp DELETE      &kp SPACE         &lt 1 TAB  &lt 3 BACKSPACE  &kp SPACE          &kp ENTER       &kp RIGHT_GUI        &kp RIGHT_ALT       &kp RIGHT_CONTROL
             >;
 
-            // 唯一一处编码器定义：左=亮度，右=音量。
-            // 传感器绑定和按键一样会逐层向下穿透，所以其余层不再重复定义，
-            // 只有需要不同功能的层才自己覆盖。
             // The only encoder definition: left = brightness, right = volume.
             // Sensor bindings fall through layers the same way &trans does for
             // keys, so the other layers deliberately define none and inherit
@@ -150,8 +147,6 @@
         };
 
         NavIpad {
-            // 只覆盖与 Nav 不同的 4 个键（Globe+方向键 = iPad 切换桌面），
-            // 其余全部 &trans，落回下面一直按住的 Nav 层。
             // Only the 4 keys that differ from Nav (Globe+arrow = iPad space
             // switching). Everything else is &trans and falls through to Nav,
             // which is always held underneath, so there are no duplicated

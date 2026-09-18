@@ -85,7 +85,7 @@
 
 &spi3 {
     compatible = "nordic,nrf-spim";
-    status = "disabled"; // 本键盘没有灯珠 / no LEDs populated on this build
+    status = "disabled"; // no LEDs populated on this build
 
     pinctrl-0 = <&spi3_default>;
     pinctrl-1 = <&spi3_sleep>;
@@ -125,8 +125,8 @@
 
         trackball_snipe_layer {
             layers = <5>;
-            // 1/4 速，比之前的 1/2 更适合精确瞄准。
-            // Quarter speed (was 1 2). The scaler carries a remainder between
+            // Quarter speed (was 1 2), which suits precise aiming better.
+            // The scaler carries a remainder between
             // events, so slow deliberate movement is deferred, never discarded.
             input-processors = <&zip_xy_scaler 1 4>;
         };
